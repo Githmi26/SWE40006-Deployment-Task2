@@ -1,0 +1,94 @@
+﻿@model StudentGradeCalculator.Models.StudentGradeModel
+
+@{
+    ViewData["Title"] = "Student Grade Calculator";
+}
+
+<div class="text-center mb-4">
+    <h1 class="display-4">Student Grade Calculator</h1>
+
+    <p>
+        Enter the student's marks below to calculate the average and final grade.
+    </p>
+</div>
+
+<div class="row justify-content-center">
+
+    <div class="col-md-6">
+
+        <form asp-action="Index" method="post">
+
+            <div class="mb-3">
+                <label asp-for="StudentName" class="form-label"></label>
+                <input asp-for="StudentName" class="form-control" />
+                <span asp-validation-for="StudentName"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Mark1" class="form-label"></label>
+                <input asp-for="Mark1" class="form-control" />
+                <span asp-validation-for="Mark1"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Mark2" class="form-label"></label>
+                <input asp-for="Mark2" class="form-control" />
+                <span asp-validation-for="Mark2"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Mark3" class="form-label"></label>
+                <input asp-for="Mark3" class="form-control" />
+                <span asp-validation-for="Mark3"
+                      class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Calculate Grade
+            </button>
+
+        </form>
+
+        @if (ViewBag.ShowResult == true)
+        {
+            <div class="card mt-4">
+
+                <div class="card-body">
+
+                    <h4>Grade Result</h4>
+
+                    <p>
+                        <strong>Student:</strong>
+                        @Model.StudentName
+                    </p>
+
+                    <p>
+                        <strong>Average:</strong>
+                        @Model.Average%
+                    </p>
+
+                    <p>
+                        <strong>Grade:</strong>
+                        @Model.Grade
+                    </p>
+
+                    <p>
+                        <strong>Result:</strong>
+                        @Model.Result
+                    </p>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
