@@ -12,6 +12,14 @@
     </p>
 </div>
 
+@if (ViewBag.EnvironmentName != null)
+{
+    <div class="alert alert-info">
+        <strong>Environment:</strong>
+        @ViewBag.EnvironmentName
+    </div>
+}
+
 <div class="row justify-content-center">
 
     <div class="col-md-6">
